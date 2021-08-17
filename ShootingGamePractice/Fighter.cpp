@@ -2,11 +2,11 @@
 #include "Bullet.h"
 #include <DxLib.h>
 
-
-Bullet* bullet = new Bullet;
-
 Fighter::Fighter()
 {
+	//弾クラス初期化
+	mBullet = new Bullet(this);
+
 	//初期位置設定
 	fighterX = 231;
 	fighterY = 890;
@@ -34,16 +34,19 @@ void Fighter::Update()
 	if (CheckHitKey(KEY_INPUT_SPACE) == 1 && shotFlag == false) //弾を発射
 	{
 		//弾の位置をセット
-		bullet->setBulletX((fighterImageW - bullet->getBulletImageW()) / 2 + fighterX);
-		bullet->setBulletY((fighterImageH - bullet->getBulletImageH()) / 2 + fighterY);
+		mBullet->setBulletX((fighterImageW - mBullet->getBulletImageW()) / 2 + fighterX);
+		mBullet->setBulletY((fighterImageH - mBullet->getBulletImageH()) / 2 + fighterY);
 	
  		shotFlagOn();
 	}
+
+	mBullet->Update();
 }
 
 void Fighter::Draw()
 {
 	DrawGraph(fighterX, fighterY, fighterImageHandle, true); //戦闘機の画像を表示
+	mBullet->Draw();
 }
 
 int Fighter::getFighterX()
