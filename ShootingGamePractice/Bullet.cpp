@@ -2,9 +2,8 @@
 #include "Fighter.h"
 #include <DxLib.h>
 
-Fighter* fighter = new Fighter;
-
-Bullet::Bullet()
+Bullet::Bullet(Fighter* fighter):
+    m_fighter(fighter)
 {
      //À•W‰Šú‰»
     bulletX = 0;
@@ -27,13 +26,13 @@ Bullet::~Bullet()
 
 void Bullet::Update()
 {
-    if (fighter->getShotFlag() == true)
+    if (m_fighter->getShotFlag() == true)
     {
         MoveUp();
-        DebugBreak();
-        if (bulletY < fighter->getFighterY() - 300)
+
+        if (bulletY < m_fighter->getFighterY() - 300)
         {
-            fighter->shotFlagOff();
+            m_fighter->shotFlagOff();
         }
 
     }
@@ -41,7 +40,7 @@ void Bullet::Update()
 
 void Bullet::Draw()
 {
-    if (fighter->getShotFlag() == true) 
+    if (m_fighter->getShotFlag() == true)
     {
         DrawGraph(bulletX, bulletY, bulletImageHandle, true);
     }

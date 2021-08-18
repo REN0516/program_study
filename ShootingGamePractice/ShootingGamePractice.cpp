@@ -15,17 +15,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	SetDrawScreen(DX_SCREEN_BACK); //裏画面に描画設定
 
 	Fighter* fighter = new Fighter;
-
-	Bullet* bullet = new Bullet;
-		
+			
 	while (ProcessMessage()==0)
 	{
 		fighter->Update();
-		bullet->Update();
-
+		
 		ClearDrawScreen(); //描画されているものをすべて消す
+
 		fighter->Draw();
-		bullet->Draw();
+
 		ScreenFlip(); //表画面に裏画面を描画
 
 		if (CheckHitKey(KEY_INPUT_ESCAPE) == 1)break; //ESCが押されたら終了

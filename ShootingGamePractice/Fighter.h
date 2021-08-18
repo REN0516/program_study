@@ -1,4 +1,6 @@
 #pragma once
+
+class Bullet;
 class Fighter
 {
 private:
@@ -19,6 +21,9 @@ private:
 
 	//ˆÚ“®—Ê
 	int fighterMovingDistance;
+
+	//’eƒNƒ‰ƒX
+	Bullet* m_Bullet;
 				
 public:
 
