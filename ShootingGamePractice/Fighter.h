@@ -23,7 +23,7 @@ private:
 	int fighterMovingDistance;
 
 	//’eƒNƒ‰ƒX
-	Bullet* mBullet;
+	Bullet* m_Bullet;
 				
 public:
 

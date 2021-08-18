@@ -5,7 +5,7 @@
 Fighter::Fighter()
 {
 	//弾クラス初期化
-	mBullet = new Bullet(this);
+	m_Bullet = new Bullet(this);
 
 	//初期位置設定
 	fighterX = 231;
@@ -34,19 +34,19 @@ void Fighter::Update()
 	if (CheckHitKey(KEY_INPUT_SPACE) == 1 && shotFlag == false) //弾を発射
 	{
 		//弾の位置をセット
-		mBullet->setBulletX((fighterImageW - mBullet->getBulletImageW()) / 2 + fighterX);
-		mBullet->setBulletY((fighterImageH - mBullet->getBulletImageH()) / 2 + fighterY);
+		m_Bullet->setBulletX((fighterImageW - m_Bullet->getBulletImageW()) / 2 + fighterX);
+		m_Bullet->setBulletY((fighterImageH - m_Bullet->getBulletImageH()) / 2 + fighterY);
 	
  		shotFlagOn();
 	}
 
-	mBullet->Update();
+	m_Bullet->Update();
 }
 
 void Fighter::Draw()
 {
 	DrawGraph(fighterX, fighterY, fighterImageHandle, true); //戦闘機の画像を表示
-	mBullet->Draw();
+	m_Bullet->Draw();
 }
 
 int Fighter::getFighterX()
