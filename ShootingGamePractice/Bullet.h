@@ -17,10 +17,8 @@ private:
 	//ˆÚ“®—Ê
 	int bulletMovingDistance;
 
-	Fighter* m_fighter;
-
 public:
-	Bullet(Fighter* fighter);
+	Bullet();
 	~Bullet();
 
 	//–ˆƒtƒŒ[ƒ€‚Ìˆ—
@@ -29,22 +27,33 @@ public:
 	//–ˆƒtƒŒ[ƒ€‚Ì•`‰æ
 	void Draw();
 
+	//‰Šú‰»
+	void Init(int x, int y);
+
+	//’e‚Ìx²‚ÌgetterAsetter
 	int getBulletX();
 	void setBulletX(int x);
 
+	//’e‚Ìy²‚ÌgetterAsetter
 	int getBulletY();
 	void setBulletY(int y);
 
+	//’e‚Ì‰æ‘œ‚Ì‰¡•‚ÌgetterAsetter
 	int getBulletImageW();
 	void setBulletImageW(int w);
 
+	//’e‚Ì‰æ‘œ‚Ìc•‚ÌgetterAsetter
 	int getBulletImageH();
 	void setBulletImageH(int h);
 		
+	//’e‚Ì‰æ‘œ‚Ìƒnƒ“ƒhƒ‹
 	int getBulletImageHandle();
 	void setBulletImageHandle(int handle);
 
-	void MoveUp();
-
+	//’e‚Ì“®‚«
+	void Movement();
+	
+	//”­Ë‚³‚ê‚Ä‚¢‚é‚©‚ğ•Ô‚·
+	bool const IsUsed();
 };
 

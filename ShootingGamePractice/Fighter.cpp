@@ -1,11 +1,11 @@
 #include "Fighter.h"
-#include "Bullet.h"
+#include "Magazine.h"
 #include <DxLib.h>
 
 Fighter::Fighter()
 {
-	//弾クラス初期化
-	m_Bullet = new Bullet(this);
+	//弾倉クラス初期化
+	magazine = new Magazine(this);
 
 	//初期位置設定
 	fighterX = 231;
@@ -14,9 +14,7 @@ Fighter::Fighter()
 	fighterImageHandle = LoadGraph("Fiter.png");
 
 	GetGraphSize(fighterImageHandle, &fighterImageW, &fighterImageH);
-
-	shotFlag = false;
-
+		
 	fighterMovingDistance = 8;
 }
 
@@ -31,22 +29,19 @@ void Fighter::Update()
 	if (CheckHitKey(KEY_INPUT_UP) == 1 && fighterY > 0)MoveUp(); //上に移動
 	if (CheckHitKey(KEY_INPUT_DOWN) == 1 && fighterY < 890)MoveDown(); //下に移動
 
-	if (CheckHitKey(KEY_INPUT_SPACE) == 1 && shotFlag == false) //弾を発射
+	if (CheckHitKey(KEY_INPUT_SPACE) == 1) //弾を発射
 	{
 		//弾の位置をセット
-		m_Bullet->setBulletX((fighterImageW - m_Bullet->getBulletImageW()) / 2 + fighterX);
-		m_Bullet->setBulletY((fighterImageH - m_Bullet->getBulletImageH()) / 2 + fighterY);
-	
- 		shotFlagOn();
+		magazine->Load();
 	}
 
-	m_Bullet->Update();
+	magazine->Update();
 }
 
 void Fighter::Draw()
 {
 	DrawGraph(fighterX, fighterY, fighterImageHandle, true); //戦闘機の画像を表示
-	m_Bullet->Draw();
+	magazine->Draw();
 }
 
 int Fighter::getFighterX()
@@ -107,21 +102,6 @@ int Fighter::getMovingDistance()
 void Fighter::setMovingDistance(int m)
 {
 	fighterMovingDistance = m;
-}
-
-bool Fighter::getShotFlag()
-{
-	return shotFlag;
-}
-
-const void Fighter::shotFlagOn()
-{
-	shotFlag = true;
-}
-
-const void Fighter::shotFlagOff()
-{
-	shotFlag = false;
 }
 
 void Fighter::MoveUp()

@@ -1,6 +1,6 @@
 #pragma once
 
-class Bullet;
+class Magazine;
 class Fighter
 {
 private:
@@ -15,15 +15,12 @@ private:
 	//戦闘機の画像の横幅と、立幅
 	int fighterImageW;
 	int fighterImageH;
-
-	//弾発射フラグ
-	bool shotFlag;
-
+		
 	//移動量
 	int fighterMovingDistance;
 
 	//弾クラス
-	Bullet* m_Bullet;
+	Magazine* magazine;
 				
 public:
 
@@ -60,13 +57,6 @@ public:
 	 //移動量のgetter、setter
 	 int getMovingDistance();
 	 void setMovingDistance(int m);
-
-	 //発射フラグのgetter
-	 bool getShotFlag();
-
-	 //発射フラグ切り替え
-	 const void shotFlagOn();
-	 const void shotFlagOff();
 
 	 //上に移動
 	 void MoveUp();

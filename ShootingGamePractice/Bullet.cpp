@@ -1,13 +1,10 @@
 #include "Bullet.h"
-#include "Fighter.h"
 #include <DxLib.h>
 
-Bullet::Bullet(Fighter* fighter):
-    m_fighter(fighter)
+Bullet::Bullet()
 {
      //À•W‰Šú‰»
-    bulletX = 0;
-    bulletY = 0;
+    Init(0,0);
 
     //’e‚Ì‰æ‘œ“Ç‚Ýž‚Ý
     bulletImageHandle = LoadGraph("bullet.png");
@@ -16,7 +13,7 @@ Bullet::Bullet(Fighter* fighter):
     GetGraphSize(bulletImageHandle,&bulletImageW,&bulletImageH);
 
     //’e‚ÌˆÚ“®—Ê‚ð‰Šú‰»
-    bulletMovingDistance = 32;
+    bulletMovingDistance = 16;
 
 }
 
@@ -26,24 +23,25 @@ Bullet::~Bullet()
 
 void Bullet::Update()
 {
-    if (m_fighter->getShotFlag() == true)
+    if (bulletX>0)
     {
-        MoveUp();
-
-        if (bulletY < m_fighter->getFighterY() - 300)
-        {
-            m_fighter->shotFlagOff();
-        }
-
+        Movement();
     }
 }
 
 void Bullet::Draw()
 {
-    if (m_fighter->getShotFlag() == true)
+    if (bulletX > 0)
     {
         DrawGraph(bulletX, bulletY, bulletImageHandle, true);
     }
+}
+
+void Bullet::Init(int x, int y)
+{
+    bulletX = x;
+    bulletY = y;
+    
 }
 
 int Bullet::getBulletX()
@@ -96,7 +94,16 @@ void Bullet::setBulletImageHandle(int handle)
     bulletImageHandle = handle;
 }
 
-void Bullet::MoveUp()
+void Bullet::Movement()
 {
     bulletY -= bulletMovingDistance;
+}
+
+bool const Bullet::IsUsed()
+{
+    if (bulletY>0)
+    {
+        return true;
+    }
+    return false;
 }
