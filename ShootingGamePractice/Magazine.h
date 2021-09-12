@@ -6,7 +6,7 @@ class Magazine
 private:
 
 	//ƒv[ƒ‹‚Ì‘å‚«‚³
-	static const int poolSize = 50;
+	static const int poolSize = 100;
 	
 	//’e‚Ì”z—ñ
 	Bullet* bullet[poolSize];

@@ -19,7 +19,7 @@ private:
 	//移動量
 	int fighterMovingDistance;
 
-	//弾クラス
+	//マガジンクラス
 	Magazine* magazine;
 				
 public:

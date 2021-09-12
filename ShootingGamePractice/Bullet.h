@@ -17,6 +17,9 @@ private:
 	//移動量
 	int bulletMovingDistance;
 
+	//発射フラグ
+	bool shotFlag;
+
 public:
 	Bullet();
 	~Bullet();
@@ -46,6 +49,10 @@ public:
 	int getBulletImageH();
 	void setBulletImageH(int h);
 		
+	//発射フラグのgetter、setter
+	bool getShotFlag();
+	void setShotFlag(bool flag);
+
 	//弾の画像のハンドル
 	int getBulletImageHandle();
 	void setBulletImageHandle(int handle);

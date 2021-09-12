@@ -35,7 +35,7 @@ void Fighter::Update()
 		magazine->Load();
 	}
 
-	magazine->Update();
+	magazine->Update(); 
 }
 
 void Fighter::Draw()

@@ -23,15 +23,19 @@ Bullet::~Bullet()
 
 void Bullet::Update()
 {
-    if (bulletX>0)
+    if (shotFlag == true)
     {
         Movement();
+    }
+    if (bulletY<0)
+    {
+        shotFlag = false;
     }
 }
 
 void Bullet::Draw()
 {
-    if (bulletX > 0)
+    if (shotFlag==true)
     {
         DrawGraph(bulletX, bulletY, bulletImageHandle, true);
     }
@@ -41,6 +45,8 @@ void Bullet::Init(int x, int y)
 {
     bulletX = x;
     bulletY = y;
+    
+    shotFlag = false;
     
 }
 
@@ -82,6 +88,16 @@ int Bullet::getBulletImageH()
 void Bullet::setBulletImageH(int h)
 {
     bulletImageH = h;
+}
+
+bool Bullet::getShotFlag()
+{
+    return shotFlag;
+}
+
+void Bullet::setShotFlag(bool flag)
+{
+    shotFlag = flag;
 }
 
 int Bullet::getBulletImageHandle()

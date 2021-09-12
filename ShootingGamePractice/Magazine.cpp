@@ -24,7 +24,7 @@ void Magazine::MakeBullet(int x, int y)
 		if (!bullet[i]->IsUsed())
 		{
 			bullet[i]->Init(0,0);
-			return;
+			//break;
 		}
 	}
 }
@@ -33,10 +33,9 @@ void Magazine::Update()
 {
 	for (int i = 0; i < poolSize; i++)
 	{
-		if (bullet[i]->IsUsed())
+		if (bullet[i]->getShotFlag() == true)
 		{
 			bullet[i]->Update();
-			return;
 		}
 	}
 }
@@ -45,10 +44,9 @@ void Magazine::Draw()
 {
 	for (int i = 0; i < poolSize; i++)
 	{
-		if (bullet[i]->IsUsed())
+		if (bullet[i]->getShotFlag()==true)
 		{
 			bullet[i]->Draw();
-			return;
 		}
 	}
 }
@@ -57,10 +55,11 @@ void Magazine::Load()
 {
 	for (int i = 0; i < poolSize; i++)
 	{
-		if (!bullet[i]->IsUsed())
+		if (bullet[i]->getShotFlag()==false)
 		{
 			bullet[i]->setBulletX((fighter->getFighterImageW() - bullet[i]->getBulletImageW()) / 2 + fighter->getFighterX());
 			bullet[i]->setBulletY((fighter->getFighterImageH() - bullet[i]->getBulletImageH()) / 2 + fighter->getFighterY());
+			bullet[i]->setShotFlag(true);
 			break;
 		}
 	}
