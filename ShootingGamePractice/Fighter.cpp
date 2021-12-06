@@ -32,7 +32,9 @@ void Fighter::Update()
 	if (CheckHitKey(KEY_INPUT_SPACE) == 1) //’e‚ð”­ŽË
 	{
 		//’e‚ÌˆÊ’u‚ðƒZƒbƒg
-		magazine->Load();
+		//magazine->Load();
+   		magazine->Fire();
+
 	}
 
 	magazine->Update(); 

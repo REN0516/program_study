@@ -19,16 +19,13 @@ public:
 	Magazine(Fighter* f);
 	~Magazine();
 
-	//弾を作る
-	void MakeBullet(int x, int y);
-
 	//毎フレームの処理
 	void Update();
 
 	//毎フレームの描画
 	void Draw();
 
-	//弾の位置をセット
-	void Load();
+	//弾のを発射
+	void Fire();
 };
 

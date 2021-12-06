@@ -4,7 +4,7 @@
 #include "DxLib.h"
 
 Magazine::Magazine(Fighter* f)
-	:bullet{ nullptr }, fighter(nullptr)
+	:bullet{nullptr}, fighter(nullptr)
 {
 	fighter = f;
 	for (int i = 0; i < poolSize; i++)
@@ -15,18 +15,6 @@ Magazine::Magazine(Fighter* f)
 
 Magazine::~Magazine()
 {
-}
-
-void Magazine::MakeBullet(int x, int y)
-{
-	for (int i = 0; i < poolSize; i++)
-	{
-		if (!bullet[i]->IsUsed())
-		{
-			bullet[i]->Init(0,0);
-			//break;
-		}
-	}
 }
 
 void Magazine::Update()
@@ -51,15 +39,15 @@ void Magazine::Draw()
 	}
 }
 
-void Magazine::Load()
+void Magazine::Fire()
 {
 	for (int i = 0; i < poolSize; i++)
 	{
-		if (bullet[i]->getShotFlag()==false)
+		if (bullet[i]->getShotFlag() == false)
 		{
+			bullet[i]->setShotFlag(true);
 			bullet[i]->setBulletX((fighter->getFighterImageW() - bullet[i]->getBulletImageW()) / 2 + fighter->getFighterX());
 			bullet[i]->setBulletY((fighter->getFighterImageH() - bullet[i]->getBulletImageH()) / 2 + fighter->getFighterY());
-			bullet[i]->setShotFlag(true);
 			break;
 		}
 	}

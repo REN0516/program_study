@@ -1,1 +1,2 @@
 D:\ShootingGamePractice\x64\Debug\ShootingGamePractice.exe
+D:\新しいフォルダー (4)\program_study\ShootingGamePractice\x64\Debug\ShootingGamePractice.exe
