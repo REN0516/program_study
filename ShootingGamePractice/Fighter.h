@@ -1,26 +1,13 @@
 #pragma once
-
+#include"Object.h"
 class Magazine;
-class Fighter
+class Fighter :public Object
 {
 private:
 
-	//戦闘機のx,y座標
-	int fighterX;
-	int fighterY;
-
-	//戦闘機の画像のハンドル
-	int fighterImageHandle;
-
-	//戦闘機の画像の横幅と、立幅
-	int fighterImageW;
-	int fighterImageH;
-		
-	//移動量
-	int fighterMovingDistance;
-
 	//マガジンクラス
 	Magazine* magazine;
+
 				
 public:
 
@@ -29,10 +16,10 @@ public:
 	~Fighter();
 
 	//毎フレームの処理
-	void Update();
+	void Update() override;
 
 	//毎フレームの描画
-	void Draw();
+	void Draw() override;
 
 	//戦闘機のx座標のgetter、setter
 	 int getFighterX();

@@ -8,14 +8,14 @@ Fighter::Fighter()
 	magazine = new Magazine(this);
 
 	//初期位置設定
-	fighterX = 231;
-	fighterY = 890;
+	x = 231;
+	y = 890;
 
-	fighterImageHandle = LoadGraph("Fiter.png");
+	imageHandle = LoadGraph("Fiter.png");
 
-	GetGraphSize(fighterImageHandle, &fighterImageW, &fighterImageH);
+	GetGraphSize(imageHandle, &imageW, &imageH);
 		
-	fighterMovingDistance = 8;
+	movingDistance = 8;
 }
 
 Fighter::~Fighter()
@@ -24,10 +24,10 @@ Fighter::~Fighter()
 
 void Fighter::Update()
 {
-	if (CheckHitKey(KEY_INPUT_RIGHT) == 1 && fighterX < 462)MoveRight(); //右に移動
-	if (CheckHitKey(KEY_INPUT_LEFT) == 1 && fighterX > 0)MoveLeft();//左に移動
-	if (CheckHitKey(KEY_INPUT_UP) == 1 && fighterY > 0)MoveUp(); //上に移動
-	if (CheckHitKey(KEY_INPUT_DOWN) == 1 && fighterY < 890)MoveDown(); //下に移動
+	if (CheckHitKey(KEY_INPUT_RIGHT) == 1 && x < 462)MoveRight(); //右に移動
+	if (CheckHitKey(KEY_INPUT_LEFT) == 1 && x > 0)MoveLeft();//左に移動
+	if (CheckHitKey(KEY_INPUT_UP) == 1 && y > 0)MoveUp(); //上に移動
+	if (CheckHitKey(KEY_INPUT_DOWN) == 1 && y < 890)MoveDown(); //下に移動
 
 	if (CheckHitKey(KEY_INPUT_SPACE) == 1) //弾を発射
 	{
@@ -42,86 +42,86 @@ void Fighter::Update()
 
 void Fighter::Draw()
 {
-	DrawGraph(fighterX, fighterY, fighterImageHandle, true); //戦闘機の画像を表示
 	magazine->Draw();
+	DrawGraph(x, y, imageHandle, true); //戦闘機の画像を表示
 }
 
 int Fighter::getFighterX()
 {
-	return fighterX;
+	return x;
 }
 
 void Fighter::setFighterX(int x)
 {
-	fighterX = x;
+	x = x;
 }
 
 int Fighter::getFighterY()
 {
-	return fighterY;
+	return y;
 }
 
 void Fighter::setFighterY(int y)
 {
-	fighterY = y;
+	y = y;
 }
 
 int Fighter::getFighterImageHandle()
 {
-	return fighterImageHandle;
+	return imageHandle;
 }
 
 void Fighter::setFighterImageHandle(int handle)
 {
-	fighterImageHandle = handle;
+	imageHandle = handle;
 }
 
 int Fighter::getFighterImageW()
 {
-	return fighterImageW;
+	return imageW;
 }
 
 void Fighter::setFighterImageW(int w)
 {
-	fighterImageW = w;
+	imageW = w;
 }
 
 int Fighter::getFighterImageH()
 {
-	return fighterImageH;
+	return imageH;
 }
 
 void Fighter::setFighterImageH(int h)
 {
-	fighterImageH = h;
+	imageH = h;
 }
 
 int Fighter::getMovingDistance()
 {
-	return fighterMovingDistance;
+	return movingDistance;
 }
 
 void Fighter::setMovingDistance(int m)
 {
-	fighterMovingDistance = m;
+	movingDistance = m;
 }
 
 void Fighter::MoveUp()
 {
-	fighterY -= fighterMovingDistance;
+	y -= movingDistance;
 }
 
 void Fighter::MoveDown()
 {
-	fighterY += fighterMovingDistance;
+	y += movingDistance;
 }
 
 void Fighter::MoveLeft()
 {
-	fighterX -= fighterMovingDistance;
+	x -= movingDistance;
 }
 
 void Fighter::MoveRight()
 {
-	fighterX += fighterMovingDistance;
+	x += movingDistance;
 }
