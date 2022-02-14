@@ -14,13 +14,23 @@ GameManager::GameManager()
 
 GameManager::~GameManager()
 {
+	delete bgmanager;
+	delete fighter;
+	delete enemy;
 }
 
-void GameManager::All()
+void GameManager::Update()
 {
 	for (auto it:objectList)
 	{
 		it->Update();
+	}
+}
+
+void GameManager::Draw()
+{
+	for (auto it : objectList)
+	{
 		it->Draw();
 	}
 }

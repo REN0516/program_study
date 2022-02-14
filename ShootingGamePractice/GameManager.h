@@ -15,6 +15,8 @@ public:
 	GameManager();
 	~GameManager();
 
-	void All();
+	void Update();
+
+	void Draw();
 };
 
