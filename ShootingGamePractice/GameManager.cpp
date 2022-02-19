@@ -5,10 +5,10 @@ GameManager::GameManager()
 {
 	bgmanager = new BGManager;
 	fighter = new Fighter;
-	enemy = new Enemy;
+	enemyManager = new EnemyManager;
 
 	objectList.push_back(bgmanager);
-	objectList.push_back(enemy);
+	objectList.push_back(enemyManager);
 	objectList.push_back(fighter);
 }
 
@@ -16,7 +16,7 @@ GameManager::~GameManager()
 {
 	delete bgmanager;
 	delete fighter;
-	delete enemy;
+	delete enemyManager;
 }
 
 void GameManager::Update()

@@ -1,13 +1,13 @@
 #pragma once
 #include <list>
 #include "Fighter.h"
-#include "Enemy.h"
+#include "EnemyManager.h"
 #include "BGManager.h"
 class GameManager
 {
 private:
 	Fighter* fighter;
-	Enemy* enemy;
+	EnemyManager* enemyManager;
 	BGManager* bgmanager;
 
 	std::list<Object*> objectList;
