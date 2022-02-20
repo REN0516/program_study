@@ -149,13 +149,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="BGManager.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Magazine.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="ShootingGamePractice.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BackGround.h" />
+    <ClInclude Include="BGManager.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Fighter.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Magazine.h" />
+    <ClInclude Include="Object.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,29 +1,13 @@
 #pragma once
-
-class Bullet;
-class Fighter
+#include"Object.h"
+class Magazine;
+class Fighter :public Object
 {
 private:
 
-	//戦闘機のx,y座標
-	int fighterX;
-	int fighterY;
+	//マガジンクラス
+	Magazine* magazine;
 
-	//戦闘機の画像のハンドル
-	int fighterImageHandle;
-
-	//戦闘機の画像の横幅と、立幅
-	int fighterImageW;
-	int fighterImageH;
-
-	//弾発射フラグ
-	bool shotFlag;
-
-	//移動量
-	int fighterMovingDistance;
-
-	//弾クラス
-	Bullet* m_Bullet;
 				
 public:
 
@@ -32,10 +16,10 @@ public:
 	~Fighter();
 
 	//毎フレームの処理
-	void Update();
+	void Update() override;
 
 	//毎フレームの描画
-	void Draw();
+	void Draw() override;
 
 	//戦闘機のx座標のgetter、setter
 	 int getFighterX();
@@ -60,13 +44,6 @@ public:
 	 //移動量のgetter、setter
 	 int getMovingDistance();
 	 void setMovingDistance(int m);
-
-	 //発射フラグのgetter
-	 bool getShotFlag();
-
-	 //発射フラグ切り替え
-	 const void shotFlagOn();
-	 const void shotFlagOff();
 
 	 //上に移動
 	 void MoveUp();
