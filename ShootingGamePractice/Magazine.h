@@ -1,4 +1,6 @@
 #pragma once
+#include <List>
+
 class Bullet;
 class Fighter;
 class Magazine
@@ -6,10 +8,11 @@ class Magazine
 private:
 
 	//プールの大きさ
-	static const int poolSize = 100;
+	static const int poolSize = 1;
 	
 	//弾の配列
-	Bullet* bullet[poolSize];
+	//Bullet* bullet[poolSize];
+	std::list <Bullet*> bulletList;
 
 	//Fighterクラス
 	Fighter* fighter;
