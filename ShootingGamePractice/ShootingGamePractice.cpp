@@ -15,10 +15,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	GameManager* gameManager = new GameManager;
 			
-	while (ScreenFlip()==0 && ProcessMessage()==0 && ClearDrawScreen()==0)
+	while (ProcessMessage()==0)
 	{
-		gameManager->All();
-
+		gameManager->Update();
+		ClearDrawScreen();
+		gameManager->Draw();
+		ScreenFlip();
 		if (CheckHitKey(KEY_INPUT_ESCAPE) == 1)break; //ESCが押されたら終了
 	}
 

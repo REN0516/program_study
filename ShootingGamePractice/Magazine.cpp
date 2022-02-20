@@ -4,12 +4,13 @@
 #include "DxLib.h"
 
 Magazine::Magazine(Fighter* f)
-	:bullet{nullptr}, fighter(nullptr)
+//:bullet{nullptr}, 
+: fighter(nullptr)
 {
 	fighter = f;
 	for (int i = 0; i < poolSize; i++)
 	{
-		bullet[i] = new Bullet;
+		bulletList.push_back(new Bullet);
 	}
 }
 
@@ -19,35 +20,35 @@ Magazine::~Magazine()
 
 void Magazine::Update()
 {
-	for (int i = 0; i < poolSize; i++)
+	for (auto it:bulletList)
 	{
-		if (bullet[i]->getShotFlag() == true)
+		if (it->getShotFlag() == true)
 		{
-			bullet[i]->Update();
+			it->Update();
 		}
 	}
 }
 
 void Magazine::Draw()
 {
-	for (int i = 0; i < poolSize; i++)
+	for (auto it : bulletList)
 	{
-		if (bullet[i]->getShotFlag()==true)
+		if (it->getShotFlag()==true)
 		{
-			bullet[i]->Draw();
+			it->Draw();
 		}
 	}
 }
 
 void Magazine::Fire()
 {
-	for (int i = 0; i < poolSize; i++)
+	for (auto it:bulletList)
 	{
-		if (bullet[i]->getShotFlag() == false)
+		if (it->getShotFlag() == false)
 		{
-			bullet[i]->setShotFlag(true);
-			bullet[i]->setBulletX((fighter->getFighterImageW() - bullet[i]->getBulletImageW()) / 2 + fighter->getFighterX());
-			bullet[i]->setBulletY((fighter->getFighterImageH() - bullet[i]->getBulletImageH()) / 2 + fighter->getFighterY());
+			it->setShotFlag(true);
+			it->setBulletX((fighter->getFighterImageW() - it->getBulletImageW()) / 2 + fighter->getFighterX());
+			it->setBulletY((fighter->getFighterImageH() - it->getBulletImageH()) / 2 + fighter->getFighterY());
 			break;
 		}
 	}
